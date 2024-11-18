@@ -1,12 +1,23 @@
-import React from 'react';
-import { render } from 'react-dom';
-import timelineItems from './timelineItems';
+import React from "react";
+import { render } from "react-dom";
+
+// components
+import Container from "./components/Container";
+import Timeline from "./components/Timeline";
+
+// styles
+import "./index.css";
+import { TimelineProvider } from "./store/useTimeline";
 
 const App = () => (
-  <div>
-    <h2>Start editing to see some magic happen {'\u2728'}</h2>
-    <h3>{timelineItems.length} timeline items to render</h3>
-  </div>
+  <TimelineProvider>
+    <Container>
+      <div>
+        <h1>Events Timeline</h1>
+      </div>
+      <Timeline />
+    </Container>
+  </TimelineProvider>
 );
 
-render(<App />, document.getElementById('root'));
+render(<App />, document.getElementById("root"));
